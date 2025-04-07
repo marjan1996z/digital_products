@@ -27,6 +27,7 @@ class Product(models.Model):
     categories = models.ManyToManyField('Category', verbose_name=_('categories'), blank=True)
     created_time = models.DateTimeField(_('Created Time'), auto_now_add=True)
     updated_time = models.DateTimeField(_('Updated Time'), auto_now=True)
+    url = models.URLField(_('URL'), blank=True, null=True)
 
     class Meta:
         db_table = 'products'
@@ -42,6 +43,7 @@ class File(models.Model):
     title = models.CharField(_('Title'), max_length=50)
     file = models.FileField(_('File'), upload_to='files/%y/%m/%d/', blank=True, null=True)
     is_enable = models.BooleanField(_('Is Enable'), default=True)
+    file_type = models.CharField(_('File Type'), max_length=50, blank=True, null=True)
     created_time = models.DateTimeField(_('Created Time'), auto_now_add=True)
     updated_time = models.DateTimeField(_('Updated Time'), auto_now=True)
 

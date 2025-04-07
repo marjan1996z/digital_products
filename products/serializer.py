@@ -10,12 +10,12 @@ class CategorySerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
-        fields = ('id', 'title', 'file')
+        fields = ('id', 'title', 'file', 'file_type')
 
 class ProductSerializer(serializers.ModelSerializer):
     categories = CategorySerializer(many=True)
-    files = FileSerializer(many=True)
+    # files = FileSerializer(many=True)
 
     class Meta:
         model = Product
-        fields = ('id','title', 'description', 'avatar', 'categories', 'files')
+        fields = ('id','title', 'description', 'avatar', 'categories', 'url')
